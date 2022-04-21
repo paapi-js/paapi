@@ -6,8 +6,8 @@ module.exports = defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, 'lib/main.ts'),
-            name: 'Paapi',
-            fileName: (format) => `paapi.${format}.js`
+            name: 'Paapi Client',
+            fileName: (format) => `paapi-client.${format}.js`
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
@@ -17,7 +17,7 @@ module.exports = defineConfig({
                 // Provide global variables to use in the UMD build
                 // for externalized deps
                 globals: {
-
+                    'socket.io-client': 'io'
                 }
             }
         }
