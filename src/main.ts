@@ -1,11 +1,13 @@
 import './style.css'
 import paapi from '../lib/main';
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+const app = document.querySelector<HTMLDivElement>('#app')
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
-const pairApi = await paapi('http://localhost:1616/')
-
+// @ts-ignore
+const setupPairing = async () => {
+    const  link = await paapi('http://localhost:1616', 'test')
+    link.onPair(() => {
+        console.log('PAIRED')
+    })
+}
+setupPairing()
