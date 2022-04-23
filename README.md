@@ -3,7 +3,13 @@
 *Paapi is a wrapper around [Socket.io](https://socket.io) that makes pairing two devices and establishing a connection
 very simple*
 
-**[Demo](https://paapi.pnk.network/) | [npm package](https://www.npmjs.com/package/@paapi/client)**
+<br>
+<p align="center">
+<a href="https://paapi.pnk.network/"><strong>Demo</strong></a>
+<strong>|</strong>
+<a href="https://www.npmjs.com/package/@paapi/client"><strong>npm package</strong></a>
+</p>
+<br>
 
 ## 🚀 Quick start
 
