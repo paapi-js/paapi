@@ -6,3 +6,18 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+input {
+  @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64;
+}
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+.btn:disabled, .btn-blue:disabled {
+  @apply bg-gray-300 cursor-default;
+}

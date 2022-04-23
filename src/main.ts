@@ -1,14 +1,9 @@
 import 'virtual:windi.css'
 import './style.css'
-import paapi from '../lib/main';
 
-const app = document.querySelector<HTMLDivElement>('#app')
+import {Application} from '@hotwired/stimulus';
+import DemoController from './DemoController';
 
-// @ts-ignore
-const setupPairing = async () => {
-    const  link = await paapi('http://localhost:1616', 'test')
-    link.onPair(() => {
-        console.log('PAIRED')
-    })
-}
-setupPairing()
+const Stimulus = Application.start()
+Stimulus.register("demo", DemoController)
+
