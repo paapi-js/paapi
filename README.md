@@ -1,4 +1,4 @@
-![😱 ohmyfetch](.github/banner.png)
+![🔗 paapi](https://raw.githubusercontent.com/paapi-js/paapi/master/.github/banner.png)
 
 *Paapi is a wrapper around [Socket.io](https://socket.io) that makes pairing two devices and establishing a connection
 very simple*
