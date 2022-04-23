@@ -11,7 +11,7 @@ export default class DemoController extends Controller {
         'messageOutput',
         'qrcode'
     ]
-    private link = paapi('http://localhost:1616')
+    private link = paapi()
 
     connect() {
         super.connect();
