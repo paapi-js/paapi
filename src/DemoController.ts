@@ -1,5 +1,6 @@
-import {Controller} from '@hotwired/stimulus';
-import paapi from '../lib/main';
+import {Controller} from '@hotwired/stimulus'
+import paapi from '../lib/main'
+import {toCanvas} from 'qrcode';
 
 export default class DemoController extends Controller {
     static targets = ['pairInput',
@@ -8,6 +9,7 @@ export default class DemoController extends Controller {
         'paired',
         'messageInput',
         'messageOutput',
+        'qrcode'
     ]
     private link = paapi('http://localhost:1616')
 
@@ -15,6 +17,15 @@ export default class DemoController extends Controller {
         super.connect();
         this.link.onPair(() => this.onPair())
         this.link.on('message', message => this.onMessage(message))
+
+        const params = new URLSearchParams(window.location.search)
+        const id = params.get('id')
+        if (id) {
+            this.pairInput.value = id
+        }
+        window.history.replaceState(null,
+            null,
+            window.location.protocol + '//' + window.location.host + window.location.pathname)
     }
 
     onPair() {
@@ -25,7 +36,7 @@ export default class DemoController extends Controller {
         this.pairedTarget.classList.remove('hidden')
     }
 
-    onMessage (message: string) {
+    onMessage(message: string) {
         this.messageOutput.innerText = message
     }
 
@@ -38,6 +49,13 @@ export default class DemoController extends Controller {
         this.pairButton.innerText = 'Waiting for peer to connect...'
         // @ts-ignore
         this.waitingTarget.classList.remove('hidden')
+        this.createQR()
+    }
+
+    private createQR() {
+        const text = window.location.href + '?id=' + this.pairId
+        // @ts-ignore
+        toCanvas(this.qrcodeTarget, text)
     }
 
     async copyId(e) {
@@ -66,6 +84,7 @@ export default class DemoController extends Controller {
         // @ts-ignore
         return this.messageInputTarget
     }
+
     get messageOutput() {
         // @ts-ignore
         return this.messageOutputTarget
