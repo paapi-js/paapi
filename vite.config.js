@@ -1,4 +1,3 @@
-// vite.config.js
 import path from 'path'
 import VitePluginWindicss from 'vite-plugin-windicss'
 

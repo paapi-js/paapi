@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build && tsc --project tsconfig.json --emitDeclarationOnly --outDir dist",
+    "build:demo": "tsc --noEmit && vite build --config vite.config.demo.js",
     "preview": "vite preview"
   },
   "devDependencies": {
