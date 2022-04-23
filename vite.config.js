@@ -1,8 +1,11 @@
 // vite.config.js
-const path = require('path')
-const { defineConfig } = require('vite')
+import path from 'path'
+import VitePluginWindicss from 'vite-plugin-windicss'
 
-module.exports = defineConfig({
+export default {
+    plugins: [
+        VitePluginWindicss()
+    ],
     build: {
         lib: {
             entry: path.resolve(__dirname, 'lib/main.ts'),
@@ -22,4 +25,4 @@ module.exports = defineConfig({
             }
         }
     }
-})
+}

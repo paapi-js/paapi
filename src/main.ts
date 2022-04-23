@@ -1,3 +1,4 @@
+import 'virtual:windi.css'
 import './style.css'
 import paapi from '../lib/main';
 
