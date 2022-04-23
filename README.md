@@ -34,7 +34,7 @@ import paapi from '@paapi/client'
 ```
 
 > Paapi will be working out-of-the-box because it uses by default the [demo server](https://paapi.pnk.network) as
-> backend. It is strongly advised to [run your own server](#running-your-own-server) for a more reliable experience.
+> backend. It is strongly advised to [run your own server](#-running-your-own-server) for a more reliable experience.
 
 ## 🔗 Pairing
 
