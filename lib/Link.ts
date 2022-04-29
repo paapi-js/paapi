@@ -7,9 +7,11 @@ export default class Link {
     private _pairListener = useListener()
 
     private readonly _socket: Socket;
+    private _paired = false;
 
     constructor(socket: Socket) {
         this._socket = socket
+        this._socket.on('paapi:paired', () => this._paired = true)
         this._socket.on('paapi:paired', this._pairListener.trigger)
     }
 
@@ -50,8 +52,7 @@ export default class Link {
      * If the Link has been paired
      */
     get paired(): boolean {
-        // If the link hasn't a id, it's not paired
-        return this.id !== null
+        return this._paired
     }
 
     /**
