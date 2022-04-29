@@ -1,6 +1,6 @@
 {
   "name": "@paapi/client",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "repository": "https://github.com/paapi-js/paapi-server",
   "homepage": "https://paapi.pnk.network/",
   "files": [
