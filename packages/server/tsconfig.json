@@ -1,24 +1,15 @@
 {
-  // https://nitro.build/guide/typescript
-  // "extends": "./.nitro/types/tsconfig.json",
   "compilerOptions": {
-    // Module resolution
     "target": "ESNext",
     "jsx": "preserve",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-
-    // "noUnusedParameters": true,
-
     // Libs & paths
     "lib": ["ESNext", "DOM"],
     // "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
-    "types": [
-      "@cloudflare/workers-types" // <--- AJOUTE ÇA
-    ],
     // Core checks
     "strict": true,
     "noFallthroughCasesInSwitch": true,

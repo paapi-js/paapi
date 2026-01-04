@@ -1,5 +1,10 @@
 name = "paapi-server"
-compatibility_date = "2024-04-01"
+main = "src/worker.ts"
+
+compatibility_date = "2026-01-04"
+
+[dev]
+port = 1616
 
 [[durable_objects.bindings]]
 name = "DO_PAAPI"
