@@ -1,19 +1,19 @@
 {
   "name": "@paapi/server",
+  "type": "module",
   "version": "2.0.0-alpha.0",
+  "main": "./dist/server.mjs",
   "scripts": {
-    "dev": "nitro dev",
-    "build": "nitro build",
-    "build:cf": "NITRO_PRESET=cloudflare_module nitro build",
-    "preview": "node .output/server/index.mjs"
-  },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260103.0",
-    "@types/node": "^25.0.3",
-    "h3": "^1.15.4",
-    "nitropack": "^2.12.4"
+    "dev": "tsx watch src/server.ts",
+    "build": "unbuild"
   },
   "dependencies": {
-    "crossws": "^0.4.1"
+    "crossws": "^0.4.1",
+    "srvx": "^0.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "tsx": "^4.21.0",
+    "unbuild": "^3.6.1"
   }
 }
