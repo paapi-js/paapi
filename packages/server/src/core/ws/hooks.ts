@@ -1,5 +1,5 @@
-import type { Peer } from 'crossws'
 import { defineHooks } from 'crossws'
+import { getPeerRoom, getPeersInSameNS } from './peer'
 
 export const wsHooks = defineHooks({
     open(peer) {
@@ -8,6 +8,8 @@ export const wsHooks = defineHooks({
             return
         }
         peer.subscribe(room)
+        const peersInNS = getPeersInSameNS(peer)
+        console.log('peers in same ns:', peersInNS.length)
     },
 
     message(peer, message) {
@@ -22,16 +24,11 @@ export const wsHooks = defineHooks({
     close(peer) {
         const room = getPeerRoom(peer)
         if (room) {
-            peer.unsubscribe(room)
+            try {
+                peer.unsubscribe(room)
+            }
+            catch {}
         }
+        peer.close(1000)
     },
 })
-
-function getPeerRoom(peer: Peer) {
-    if (!peer.namespace.startsWith('/room/')) {
-        peer.close(4016, 'Invalid paapi namespace')
-        return false
-    }
-    const name = peer.namespace.replace('/room/', '')
-    return `paapi-${name}`
-}
