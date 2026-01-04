@@ -2,13 +2,13 @@
   "name": "@paapi/server",
   "type": "module",
   "version": "2.0.0-alpha.0",
-  "main": "./dist/server.mjs",
+  "main": "./dist/node/index.mjs",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/runtimes/node/index.ts",
     "dev:cf": "wrangler dev",
     "build": "unbuild",
-    "build:cf": "wrangler deploy --dry-run --outdir=dist-cf",
-    "typegen": "wrangler types ./src/wrangler.d.ts"
+    "build:cf": "wrangler deploy --dry-run --outdir=dist/cf",
+    "typegen": "wrangler types ./src/runtimes/cloudflare/wrangler.d.ts"
   },
   "dependencies": {
     "crossws": "^0.4.1",

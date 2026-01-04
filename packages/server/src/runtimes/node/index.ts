@@ -1,5 +1,5 @@
 import { serve } from 'crossws/server'
-import { wsHooks } from './ws/hooks'
+import { wsHooks } from '@/core/ws/hooks'
 
 serve({
     websocket: wsHooks,
