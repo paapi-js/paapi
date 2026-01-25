@@ -1,5 +1,10 @@
 import type { Peer } from 'crossws'
 
+/**
+ * Infer the room name from the peer's namespace
+ * @param peer The peer object
+ * @returns The room name or false if invalid.
+ */
 export function getPeerRoom(peer: Peer) {
     if (!peer.namespace.startsWith('/room/')) {
         peer.close(4016, 'Invalid paapi namespace')
